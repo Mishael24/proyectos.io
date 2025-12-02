@@ -1,0 +1,332 @@
+/* ================================
+   RESET Y BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4faff;
+    color: #222;
+}
+
+/* ================================
+   NAVBAR
+================================ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10%;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #007bff;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* NAV Responsive */
+@media (max-width: 768px) {
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: #fff;
+        width: 200px;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: .3s;
+        border-radius: 8px;
+    }
+
+    nav ul.active {
+        right: 10px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* ================================
+   HERO
+================================ */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
+    url("../img/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    opacity: .9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #005fcc;
+}
+
+/* ================================
+   SECCIONES GENERALES
+================================ */
+section {
+    padding: 80px 10%;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* ================================
+   SOBRE EL PROYECTO
+================================ */
+#sobre p {
+    max-width: 700px;
+    line-height: 1.8;
+}
+
+/* ================================
+   GALERÍA
+================================ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.gallery img,
+.video-thumb img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform .35s ease, box-shadow .35s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.gallery img:hover,
+.video-thumb img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+/* ================================
+     LIGHTBOX UNIVERSAL
+================================ */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease;
+    z-index: 9999;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    transform: scale(.92);
+    opacity: 0;
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.lightbox.active .lightbox-content img,
+.lightbox.active .lightbox-content video {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* CERRAR */
+.lightbox .close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 45px;
+    color: white;
+    cursor: pointer;
+    opacity: 1;
+}
+
+/* FLECHAS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+}
+
+.arrow.left { left: 40px; }
+.arrow.right { right: 40px; }
+
+.arrow:hover {
+    color: #69aaff;
+}
+
+/* ================================
+   EQUIPO
+================================ */
+.team-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.team-card h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* ================================
+   PANEL DE CONTROL
+================================ */
+.control-grid {
+    margin-top: 20px;
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.control-grid button {
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.control-grid button:hover {
+    background: #005fcc;
+}
+
+/* ================================
+   VIDEO
+================================ */
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 380px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+    font-size: 15px;
+}

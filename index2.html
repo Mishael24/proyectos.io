@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazo Robótico – Proyecto Arduino</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Brazo Robótico</div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#video">Video</a></li>
+        </ul>
+
+        <div id="menu-btn" class="menu-btn">
+            <i class="bx bx-menu"></i>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Brazo Robótico con Arduino</h1>
+            <p>Un proyecto de ingeniería, electrónica y programación.</p>
+            <a href="#sobre" class="btn">Ver más</a>
+        </div>
+    </header>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <h2>Sobre el Proyecto</h2>
+        <p>
+            Este brazo robótico fue construido utilizando Arduino y diversos servomotores, 
+            permitiendo movimientos precisos para demostrar conceptos de automatización, mecánica y control.
+        </p>
+    </section>
+
+<!-- ============================
+        GALERÍA
+============================ -->
+<section id="galeria">
+    <h2>Galería del Proyecto</h2>
+
+    <div class="gallery">
+
+    <!-- IMÁGENES -->
+    <img src="assets/img/galeria/1.jpg" data-type="image" alt="">
+    <img src="assets/img/galeria/2.jpg" data-type="image" alt="">
+    <img src="assets/img/galeria/3.jpg" data-type="image" alt="">
+    <img src="assets/img/galeria/4.jpg" data-type="image" alt="">
+    <img src="assets/img/galeria/5.jpg" data-type="image" alt="">
+    <img src="assets/img/galeria/6.jpg" data-type="image" alt="">
+
+    <!-- VIDEO -->
+    <div class="video-thumb" data-type="video" data-src="assets/img/galeria/video1.mp4">
+            <img src="assets/img/galeria/preview.jpg" alt="Video">
+        </div>
+
+<!-- LIGHTBOX UNIVERSAL -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+
+    <span class="arrow left">&#10094;</span>
+    <span class="arrow right">&#10095;</span>
+
+    <div class="lightbox-content">
+        <img id="lightbox-img">
+        <video id="lightbox-video" controls></video>
+    </div>
+</div>
+</section>
+
+    <!-- EQUIPO -->
+    <section id="equipo">
+        <h2>Equipo</h2>
+
+        <div class="team-container">
+            <div class="team-card">
+                <img src="assets/img/user1.jpg" alt="">
+                <h3>Mateo Yépez</h3>
+                <p>Responsable del diseño y desarrollo mecánico</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user2.jpg" alt="">
+                <h3>Anthony Cheme</h3>
+                <p>Patrocinador oficial</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user3.jpg" alt="">
+                <h3>Giordano Sarango</h3>
+                <p>Desarrollo y diseño web</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user4.jpg" alt="">
+                <h3>Adriana Papa</h3>
+                <p>Desarrollo y diseño web</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user5.jpg" alt="">
+                <h3>Mateo Cabezas</h3>
+                <p>Patrocinador oficial</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user6.jpg" alt="">
+                <h3>Jesús Aguilar</h3>
+                <p>Patrocinador oficial</p>
+            </div>
+            <div class="team-card">
+                <img src="assets/img/user7.jpg" alt="">
+                <h3>Andrés Pinos</h3>
+                <p>Maricon</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video">
+        <h2>Video del Proyecto</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Proyecto Brazo Robótico | Arduino
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
