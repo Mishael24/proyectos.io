@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoBlue • Robot Recolector de Basura • 1ro Técnico UEFSJE</title>
+  <meta name="description" content="EcoBlue: robot recolector de basura hecho con materiales reciclados y Arduino. Proyecto de 1ro BGU Técnico UEFSJE.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --verde: #00d4aa; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      background-image: url('https://i.ibb.co/S73wBMsR/fondo.jpg');
+      background-repeat: repeat;
+      background-size: 380px;
+      color:white;
+      min-height:100vh;
+    }
+    header {
+      position:relative;
+      height:100vh;
+      min-height:650px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      overflow:hidden;
+    }
+    .portada {
+      position:absolute;
+      top:0;left:0;width:100%;height:100%;
+      background:url('https://i.ibb.co/7JxZTY7W/image.jpg') center 30%/cover no-repeat;
+      filter:brightness(0.55);
+      z-index:1;
+    }
+    .titulo-portada { z-index:2; position:relative; }
+    h1 {
+      font-size:7rem;font-weight:800;
+      background:linear-gradient(90deg,#00ffa3,#00d4aa,#00ffa3);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 50px rgba(0,212,170,0.8);
+      margin-bottom:10px;
+    }
+    .subtitle {
+      font-size:2.1rem;font-weight:500;
+      background:rgba(0,0,0,0.65);
+      padding:12px 40px;
+      border-radius:50px;
+      backdrop-filter:blur(8px);
+    }
+    .container { max-width:1100px; margin:0 auto; padding:80px 20px 40px; }
+    .card {
+      background:rgba(10,26,47,0.85);
+      backdrop-filter:blur(15px);
+      border-radius:20px;
+      padding:35px;
+      margin:35px 0;
+      border:1px solid rgba(0,212,170,0.4);
+      box-shadow:0 15px 35px rgba(0,0,0,0.5);
+      transition:all .4s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .card.visible { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
+    .card:hover { transform:translateY(-10px); }
+    h2 { font-size:2.6rem; color:var(--verde); text-align:center; margin-bottom:25px; font-weight:700; }
+    p { font-size:1.25rem; line-height:1.8; text-align:justify; }
+    .row { display:flex; flex-wrap:wrap; gap:40px; align-items:center; margin:50px 0; }
+    .col { flex:1; min-width:300px; }
+    .img-robot {
+      max-width:100%;
+      border-radius:16px;
+      border:5px solid var(--verde);
+      box-shadow:0 15px 35px rgba(0,212,170,0.5);
+      transition: all 0.6s ease;
+    }
+    .img-robot:hover { transform: scale(1.05); }
+    ul { font-size:1.25rem; padding-left:30px; line-height:2.2; }
+    li::marker { color:var(--verde); font-size:1.4em; }
+    footer {
+      text-align:center;
+      padding:60px 20px;
+      background:rgba(10,26,47,0.95);
+      font-weight:600;
+      font-size:1.2rem;
+      margin-top:50px;
+    }
+    @media (max-width:768px) {
+      h1 { font-size:4.5rem; }
+      .subtitle { font-size:1.5rem; }
+      header { min-height:500px; }
+    }
+    @media (max-width:480px) {
+      h1 { font-size:3.5rem !important; }
+      .subtitle { font-size:1.3rem; padding:10px 20px; }
+      .row { flex-direction:column; }
+      body { background-size: 280px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="portada"></div>
+  <div class="titulo-portada">
+    <h1>ECOBLUE</h1>
+    <p class="subtitle">Robot Recolector Inteligente de Basura • 1ro BGU Técnico UEFSJE</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>¡Hola! Somos 1ro Técnico UEFSJE</h2>
+    <p>Somos estudiantes de la Unidad Educativa Fiscomisional San Juan Evangelista y presentamos con mucho orgullo nuestro proyecto <strong>EcoBlue</strong>.</p>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img src="https://i.ibb.co/7JxZTY7W/image.jpg" alt="EcoBlue visto de frente" class="img-robot">
+    </div>
+    <div class="col">
+      <div class="card">
+        <h2>¿Qué hace EcoBlue?</h2>
+        <p>Este robot ha sido diseñado para recoger basura y ayudar al cuidado del ambiente, utilizando materiales resistentes y accesibles como cartón y sensores. Su función principal es detectar objetos en el suelo mediante su sistema de sensores frontales y desplazarse sobre ruedas para recogerlos o empujarlos hacia un contenedor. Gracias a su estructura liviana pero firme, puede moverse con facilidad y soportar el uso continuo. Este robot es una herramienta ideal para mantener espacios limpios, fomentar la responsabilidad ambiental y demostrar cómo la tecnología puede aportar soluciones prácticas usando materiales reciclados.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Cómo se construyó el robot</h2>
+    <p>Este robot está construido principalmente con materiales reciclables, como cartón resistente, recortes de cajas, piezas plásticas reutilizadas y componentes electrónicos recuperados de otros proyectos. Para su funcionamiento empleamos una placa Arduino, que actúa como el “cerebro” del robot, junto con dos motores que permiten el movimiento de las ruedas. También utilizamos puentes H para controlar la dirección de los motores y realizamos varias conexiones eléctricas entre los cables, sensores y la placa. El diseño de la estructura se elaboró cortando y ensamblando el cartón de manera precisa para proteger los componentes internos. Gracias a esta combinación de materiales reciclados y tecnología básica, logramos construir un robot funcional, ecológico y útil para recoger basura y mantener limpios los espacios.</p>
+    <img src="https://i.ibb.co/7xcNqBKQ/image.jpg" alt="Construcción del robot" class="img-robot" style="max-width:90%;display:block;margin:30px auto;border-radius:16px;">
+  </div>
+
+  <div class="card">
+    <h2>Materiales y componentes utilizados</h2>
+    <ul>
+      <li><strong>Servomotores (2 unidades)</strong><br>Son motores pequeños que se mueven a un ángulo específico (0° a 180°). Se usan para cosas que necesitan girar con precisión, como mover un brazo, una cámara, o una garra.</li><br>
+      <li><strong>Porta pilas de 4 baterías</strong><br>Aquí colocas 4 pilas AA, que juntas dan 6V. Sirven para alimentar los motores o algunos sensores sin depender de la computadora.</li><br>
+      <li><strong>Par de llantas</strong><br>Son las rueditas del carrito. Se colocan en los motores para que el robot pueda moverse.</li><br>
+      <li><strong>Dos motores mecánicos (motores DC)</strong><br>Son motores simples que solo giran cuando reciben electricidad. Si inviertes la corriente, giran al revés. Estos son los que mueven las ruedas del carrito.</li><br>
+      <li><strong>Cables jumper</strong><br>Cables para conectar todo: Arduino, sensor, motores, etc. Hay macho-macho, macho-hembra y hembra-hembra.</li><br>
+      <li><strong>Arduino UNO</strong><br>La “cerebrita” del proyecto. Aquí escribes el programa que controla los motores, sensores y todo el robot.</li><br>
+      <li><strong>Puente H (L298N o L293D)</strong><br>Es un controlador de motores. Sirve para: Dar más potencia a los motores (porque Arduino no puede solo). Hacerlos girar hacia adelante o atrás.</li><br>
+      <li><strong>Sensor (probablemente ultrasónico)</strong><br>Un sensor que mide distancia. El robot lo usa para no chocar, detectando obstáculos.</li>
+    </ul>
+    <img src="https://i.ibb.co/TxTQyHXb/image.jpg" alt="EcoBlue completo" class="img-robot" style="max-width:85%;display:block;margin:30px auto;">
+  </div>
+
+  <div class="card" style="text-align:center;background:rgba(0,212,170,0.25);border:2px solid var(--verde);">
+    <h2>¡EcoBlue está listo para ayudar al planeta!</h2>
+    <p style="font-size:1.6rem;font-weight:600;">Proyecto 100% creado por estudiantes de 1ro BGU Técnico<br>Por un colegio más limpio y un futuro más verde ♻️</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 • 1ro BGU Técnico • UEFSJE | Proyecto <strong style="color:var(--verde);">EcoBlue</strong></p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
+  });
+</script>
+</body>
+</html>
