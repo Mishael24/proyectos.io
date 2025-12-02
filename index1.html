@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wally - Robot Detector de Humo</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ESTILOS -->
+  <style>
+    /* Fondo del encabezado con imagen */
+    .header-bg {
+      background-image: url("wally_fondo.jpg"); /* ← tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 40px 20px;
+      color: white;
+      position: relative;
+    }
+
+    /* Capa oscura para mejorar la lectura del texto */
+    .header-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .header-bg * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Título grande */
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+    }
+
+    /* Galería */
+    .galeria-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .galeria-btn {
+      background: #4a90e2;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .galeria-btn:hover {
+      background: #3578c5;
+    }
+
+    .galeria-imagenes {
+      display: none;
+      margin-top: 15px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .galeria-imagenes img {
+      width: 320px;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Efectos visuales */
+    .blink-animation {
+      animation: blink 0.2s alternate 8;
+      filter: drop-shadow(0 0 12px red);
+    }
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.2; }
+    }
+
+    #detectarBtn.active {
+      background: linear-gradient(45deg, #ff3b3b, #ff7b00, #ffd000);
+      color: white;
+      box-shadow: 0 0 18px #ff3b3b, 0 0 28px #ff7b00;
+      transition: 0.3s;
+    }
+
+    .alert-lights {
+      animation: lights 0.5s alternate 6;
+    }
+
+    @keyframes lights {
+      0% { background-color: rgba(0, 80, 255, 0.4); }
+      25% { background-color: rgba(255, 40, 40, 0.45); }
+      50% { background-color: rgba(255, 140, 0, 0.45); }
+      75% { background-color: rgba(255, 40, 40, 0.45); }
+      100% { background-color: rgba(0, 80, 255, 0.4); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER CON IMAGEN DE FONDO -->
+  <header class="header-bg">
+    <h1>🤖 Wally - Robot Detector de Humo</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio.alert-lights">Inicio</a></li>
+        <li><a href="#caracteristicas">Características</a></li>
+        <li><a href="#demo">Demostración</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Wally: Tu Guardián Inteligente Contra el Humo 🔥</h1>
+      <p>
+        Bienvenido al futuro de la seguridad en el hogar. <strong>Wally</strong> es un robot avanzado diseñado para detectar humo de forma inmediata, alertarte al instante y proteger lo que más importa: tu familia y tu hogar.
+      </p>
+      <p>
+        Gracias a su tecnología de sensores de última generación, Wally identifica la presencia de humo en segundos y envía notificaciones directamente a tu dispositivo móvil. Su diseño moderno y su funcionamiento autónomo lo convierten en el aliado perfecto para una vida más segura.
+      </p>
+      <p>
+        No importa si estás en casa o fuera, Wally vigila por ti las 24 horas del día, los 7 días de la semana. Su sistema inteligente aprende de tu entorno y se adapta para ofrecerte una protección personalizada y confiable.
+      </p>
+      <button id="detectarBtn">🔍 Activar Detección Ahora</button>
+      <p id="mensaje"></p>
+    </div>
+
+
+    <div class="smoke" id="humo"></div>
+  </section>
+
+  <section id="caracteristicas">
+    <h2>🚀 Características de Wally</h2>
+    <div class="cards">
+      <div class="card">📡 Sensor óptico de alta precisión</div>
+      <div class="card">🔋 Batería de larga duración (24h)</div>
+      <div class="card">🌐 Conectividad Wi-Fi y App móvil</div>
+      <div class="card">🔔 Alarma sonora y luces LED</div>
+      <div class="card">♻️ Diseño ecológico y reciclable</div>
+    </div>
+  </section>
+  <section id="caracteristicas">
+  <h2>🚀 Características de Wally</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://www.steren.com.ec/media/catalog/product/cache/bb0cad18a6adb5d17b0efd58f4201a2f/image/2031003d6/sensor-de-humo-y-gas.jpg" alt="Sensor óptico de humo" height="100" width="100">
+      <p>📡 Sensor óptico de alta precisión</p>
+    </div>
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/713sZPcrvsL._AC_SL1500_.jpg" alt="Batería de larga duración" height="100" width="100">
+      <p>🔋 Batería de larga duración (24h)</p>
+    </div>
+    <div class="card">
+      <img src="https://imagenes.elpais.com/resizer/v2/DUUB7QB7Q5KABDU4AY2UD76E6I.jpg?auth=24d1e07e04c2279296e86c35b47499db6653ed60011fb4689cef95a14e5df08d&width=1200" alt="Conectividad Wi-Fi y App móvil" height="100" width="100">
+      <p>🌐 Conectividad Wi-Fi y App móvil</p>
+    </div>
+    <div class="card">
+      <img src="https://i.ytimg.com/vi/setjiVH0_IY/maxresdefault.jpg" alt="Alarma sonora y luces LED" height="100" width="100">
+      <p>🔔 Alarma sonora y luces LED</p>
+    </div>
+    <div class="card">
+      <img src="https://thumbs.dreamstime.com/z/concepto-de-reciclado-con-materiales-reciclables-para-un-dise%C3%B1o-ecol%C3%B3gico-frascos-vidrio-caja-cart%C3%B3n-planta-pl%C3%A1stico-385459859.jpg?ct=jpeg" alt="Diseño ecológico y reciclable" height="100" width="100">
+      <p>♻️ Diseño ecológico y reciclable</p>
+    </div>
+  </div>
+</section>
+
+  <section id="demo">
+    <h2>🎥 Proceso de construcción de Wally</h2>
+    <p>Aquí puedes ver cómo fue creado Wally paso a paso 💡</p>
+
+    <div class="galeria-container">
+      <button class="galeria-btn" onclick="toggleGaleria()">📸 Ver imágenes</button>
+
+      <div class="galeria-imagenes" id="galeria">
+        <img src="img_proceso1.jpg" alt="Proceso de construcción de Wally">
+        <img src="img_proceso2.jpg" alt="Proceso de construcción de Wally">
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>📩 Contáctanos</h2>
+    <p>¿Quieres conocer más sobre Wally o adquirir uno?</p>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="tuemail@ejemplo.com" required>
+      <textarea placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Wally Robotics | Innovación al servicio de tu seguridad</p>
+  </footer>
+
+  <audio id="alertaSonido" src="alerta.mp3"></audio>
+
+  <script>
+    function toggleGaleria() {
+      const galeria = document.getElementById("galeria");
+      galeria.style.display = galeria.style.display === "block" ? "none" : "block";
+    }
+
+    const btn = document.getElementById("detectarBtn");
+    const mensaje = document.getElementById("mensaje");
+    const humo = document.getElementById("humo");
+    const sonido = document.getElementById("alertaSonido");
+
+    btn.addEventListener("click", () => {
+      mensaje.textContent = "Detectando...";
+      sonido.play();
+
+      humo.classList.add("blink-animation");
+      document.querySelector("#inicio").classList.add("alert-lights");
+      btn.classList.add("active");
+
+      setTimeout(() => {
+        humo.classList.remove("blink-animation");
+        document.querySelector("#inicio").classList.remove("alert-lights");
+        btn.classList.remove("active");
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
+
