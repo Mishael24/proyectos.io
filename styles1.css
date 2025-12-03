@@ -162,18 +162,20 @@ section h2 {
 /* ================================
    GALERÍA
 ================================ */
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-   background: 
+#galeria{
+    background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url("https://img3.wallspic.com/previews/8/0/9/0/80908/80908-diagrama_de_circuito-x750.jpg");
     background-size: cover;
     background-position: center;
     padding: 40px 20px;
     color: white;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  
 }
 
 .gallery img,
@@ -388,6 +390,7 @@ footer {
     margin-top: 40px;
     font-size: 15px;
 }
+
 
 
 
