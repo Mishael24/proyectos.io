@@ -270,6 +270,16 @@ section h2 {
 /* ================================
    EQUIPO
 ================================ */
+#equipo{
+    background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("https://img3.wallspic.com/previews/8/0/7/9/29708/29708-la_robtica-x750.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: white;
+   
+}
 .team-container {
     display: flex;
     gap: 30px;
@@ -325,10 +335,7 @@ section h2 {
    VIDEO
 ================================ */
 /* Estilos generales para la sección de video */
-.video {
-    padding: 40px 20px;
-    border-radius: 10px;
-    margin: 40px 0;
+#video {
    background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url("https://img2.wallspic.com/previews/1/1/2/0/80211/80211-la_molcula_de-x750.jpg");
@@ -390,6 +397,7 @@ footer {
     margin-top: 40px;
     font-size: 15px;
 }
+
 
 
 
