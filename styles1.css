@@ -323,7 +323,7 @@ section h2 {
    VIDEO
 ================================ */
 /* Estilos generales para la sección de video */
-#video {
+.video {
     padding: 40px 20px;
     border-radius: 10px;
     margin: 40px 0;
@@ -388,6 +388,7 @@ footer {
     margin-top: 40px;
     font-size: 15px;
 }
+
 
 
 
